@@ -3,8 +3,14 @@ import { Router } from 'react-router-dom'
 import Routes from './routes'
 import history from './services/history'
 
+import './config/reactotronconfig'
+
 function App() {
-  return <Routes />
+  return (
+    <Router history={history}>
+      <Routes />
+    </Router>
+  )
 }
 
 export default App
