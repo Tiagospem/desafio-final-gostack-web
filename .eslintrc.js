@@ -27,6 +27,16 @@ module.exports = {
   rules: {
     'prettier/prettier': 'error',
     'import/prefer-default-export': 'off',
+      'no-useless-rename': ['error', {
+        'ignoreDestructuring': true
+    }],
     'no-unused-vars': 'off'
+  },
+  settings: {
+    'import/resolver': {
+      'babel-plugin-root-import' : {
+        rootPathSuffix: 'src'
+      }
+    }
   }
 }
