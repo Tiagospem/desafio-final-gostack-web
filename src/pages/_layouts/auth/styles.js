@@ -12,13 +12,25 @@ export const keyFrames = keyframes`
     width: 50%;
   }`
 
+export const keyFramesFilter = keyframes`
+0% {
+  filter: grayscale(1);
+}
+100% {
+  filter: grayscale(0);
+}`
+
 export const Wrapper = styled.div`
   height: 100%;
-  background: rgba(166, 69, 54, 0.2);
+  background: rgba(166, 69, 54, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
   &::before {
+    filter: grayscale(0);
+    animation-name: ${keyFramesFilter};
+    animation-duration: 3s;
+    animation-iteration-count: 1;
     background-image: url(${bg});
     background-size: cover;
     content: '';
@@ -27,7 +39,6 @@ export const Wrapper = styled.div`
     width: 100%;
     height: 100%;
     z-index: -2;
-    opacity: 1;
   }
 `
 export const Content = styled.div`
