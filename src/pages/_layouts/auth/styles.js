@@ -43,7 +43,7 @@ export const Content = styled.div`
   padding: 30px;
   border-radius: 8px;
   width: 100%;
-  max-width: 315px;
+  max-width: 415px;
   text-align: center;
   form {
     display: flex;
@@ -62,6 +62,7 @@ export const Content = styled.div`
         color: rgba(0, 0, 0, 0.5);
       }
       &:focus {
+        transition: all 0.3s;
         border: 1px solid rgba(0, 0, 0, 0.3);
         box-shadow: 0px 0px 6px -1px rgba(0, 0, 0, 0.35);
       }
@@ -79,6 +80,16 @@ export const Content = styled.div`
       &:hover {
         background: ${darken(0.08, '#a64536')};
       }
+    }
+    span {
+      width: 100%;
+      color: #a64536;
+      text-align: left;
+      margin-bottom: 10px;
+      position: relative;
+      top: -7px;
+      font-size: 12px;
+      padding-left: 10px;
     }
     a {
       color: #000;
