@@ -9,15 +9,11 @@ export function* signIn({ payload }) {
     const { email, password } = payload
     const response = yield call(api.post, 'sessions', { email, password })
     const { token, user } = response.data
-    if (!user.provider) {
-      toast.error('Usuário não é prestador')
-      return
-    }
     api.defaults.headers.Authorization = `Bearer ${token}`
     yield put(signInSuccess(token, user))
     history.push('/dashboard')
   } catch (e) {
-    toast.error('Falha na autenticação, verifique seus dados!')
+    toast.error('Authentication failed, check your credentials!')
     yield put(signFailure())
   }
 }
@@ -28,16 +24,13 @@ export function* signUp({ payload }) {
     yield call(api.post, 'users', {
       name,
       email,
-      password,
-      provider: true
+      password
     })
-    toast.success(
-      'Cadastro efetuado com sucesso, efetue login com seus dados de acesso!'
-    )
+    toast.success('Registration successful, login with your credentials!')
     yield put(signUpSuccess())
     history.push('/')
   } catch (e) {
-    toast.error('Falha no cadastro, verifique seus dados!')
+    toast.error('Registration failed, check your credentials!')
     yield put(signFailure())
   }
 }

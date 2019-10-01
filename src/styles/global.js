@@ -1,4 +1,6 @@
 import { createGlobalStyle } from 'styled-components'
+import 'react-toastify/dist/ReactToastify.min.css'
+import 'react-perfect-scrollbar/dist/css/styles.css'
 
 export default createGlobalStyle`
   @import url('https://fonts.googleapis.com/css?family=Be+Vietnam:400,600&display=swap');

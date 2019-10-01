@@ -1,10 +1,3 @@
-export function x(x, y) {
-  return {
-    type: '@act/x',
-    payload: { x, y }
-  }
-}
-
 export function updateProfileRequest(data) {
   return {
     type: '@user/UPDATE_PROFILE_REQUEST',
