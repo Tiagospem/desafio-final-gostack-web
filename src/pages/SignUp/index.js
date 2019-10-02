@@ -4,17 +4,18 @@ import { Link } from 'react-router-dom'
 import * as Yup from 'yup'
 import logo from '~/assets/logo.png'
 
+const schema = Yup.object().shape({
+  email: Yup.string()
+    .email('Insert a valid email')
+    .required('The email is required'),
+  password: Yup.string()
+    .min(8, 'The password requires min 8 characters')
+    .required('The password is required'),
+  name: Yup.string().required('The name is required')
+})
+
 export default function SignUp() {
   function handleSubmit(data) {}
-  const schema = Yup.object().shape({
-    email: Yup.string()
-      .email('Insert a valid email')
-      .required('The email is required'),
-    password: Yup.string()
-      .min(8, 'The password requires min 8 characters')
-      .required('The password is required'),
-    name: Yup.string().required('The name is required')
-  })
 
   return (
     <>

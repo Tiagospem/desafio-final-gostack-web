@@ -16,14 +16,16 @@ export default createGlobalStyle`
   }
 
   html, body, #root {
-    height: 100%
+    height: 100%;
+    background: #f1f1f1;
   }
 
   body {
     -webkit-font-smoothing: antialiased;
   }
 
-  body, input, button {
+  body, input, button, textarea {
+    width: 100%;
     font: 14px 'Be Vietnam', sans-serif
   }
   a {
