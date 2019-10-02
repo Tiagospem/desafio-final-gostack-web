@@ -1,4 +1,5 @@
 import styled from 'styled-components'
+import { lighten } from 'polished'
 
 export const Container = styled.div`
   padding-top: 20px;
@@ -15,10 +16,9 @@ export const Card = styled.li`
   background: #fff;
   border-radius: 4px;
   box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.03);
-  transition: filter 0.4s;
-
+  transition: box-shadow 0.4s;
   &:hover {
-    filter: grayscale(1);
+    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.1);
   }
 `
 export const CardHeader = styled.header`
@@ -29,11 +29,51 @@ export const CardHeader = styled.header`
   background-size: cover;
 `
 export const CardBody = styled.div`
-  height: 100px;
+  height: 70px;
+  display: flex;
+  align-items: center;
+  padding: 5px;
+  font-weight: bold;
+  text-align: justify;
+  color: #666;
 `
 export const CardFooter = styled.div`
-  padding: 10px;
   background: #f9f9f9;
   border-bottom-left-radius: 4px;
   border-bottom-right-radius: 4px;
+  display: flex;
+  justify-content: space-between;
+  button {
+    margin: 7px 5px;
+    border: 1px solid #f1f1f1;
+    border-radius: 4px;
+    padding: 5px 15px;
+    width: 100%;
+    color: #666;
+    transition: background 0.3s;
+    background: #fff;
+    &:hover {
+      background: ${lighten(0.09, '#4da753')};
+      svg {
+        color: #fff;
+      }
+    }
+  }
+  button:first-child {
+    &:hover {
+      background: ${lighten(0.09, '#4da753')};
+      svg {
+        color: #fff;
+      }
+    }
+  }
+  button:last-child {
+    cursor: ${props => (props.past ? 'not-allowed' : 'pointer')};
+    &:hover {
+      background: ${lighten(0.09, '#72191c')};
+      svg {
+        color: #fff;
+      }
+    }
+  }
 `

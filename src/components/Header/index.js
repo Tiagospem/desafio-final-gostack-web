@@ -18,14 +18,14 @@ function Header() {
         <nav>
           <img src={logo} alt="Meetup" />
           <Link to="/dashboard">Dashboard</Link>
-          <Link to="/dashboard">New Meetup</Link>
+          <Link to="/create">Create New</Link>
         </nav>
         <aside>
           <Notifications />
           <Profile>
             <div>
               <strong>{profile.name}</strong>
-              <Link to="/profile">Profile</Link>
+              <Link to="/account">Account</Link>
             </div>
             <button onClick={handleLogout}>
               <span>Logout</span>
