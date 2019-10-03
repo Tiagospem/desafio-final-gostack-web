@@ -22,6 +22,7 @@ export const keyFramesFilter = keyframes`
 
 export const Wrapper = styled.div`
   height: 100%;
+  opacity: 0.99;
   background: rgba(166, 69, 54, 0.1);
   display: flex;
   justify-content: center;

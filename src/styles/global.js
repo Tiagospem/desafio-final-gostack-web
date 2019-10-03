@@ -17,7 +17,7 @@ export default createGlobalStyle`
 
   html, body, #root {
     height: 100%;
-    background: #f1f1f1;
+    background-color: #f1f1f1;
   }
 
   body {
@@ -25,9 +25,9 @@ export default createGlobalStyle`
   }
 
   body, input, button, textarea {
-    width: 100%;
     font: 14px 'Be Vietnam', sans-serif
   }
+
   a {
     text-decoration: none;
   }

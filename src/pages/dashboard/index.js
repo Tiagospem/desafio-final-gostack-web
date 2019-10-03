@@ -22,7 +22,7 @@ export default function Dashboard() {
         <Card>
           <CardHeader image="https://www.fluentin3months.com/wp-content/uploads/2018/12/language-meetup.jpg" />
           <CardBody>
-            Aqui vai o titulo do meet up não pode ser muito grande
+            Encontro Rocketseat, NodeJS, ReactJS e React Native
           </CardBody>
           <CardFooter>
             <button>

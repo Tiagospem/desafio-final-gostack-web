@@ -1,25 +1,36 @@
 import React, { useState } from 'react'
+import { toast } from 'react-toastify'
 import * as Yup from 'yup'
-import { Form, Input, Textarea } from '@rocketseat/unform'
+import { Form, Input } from '@rocketseat/unform'
 import { MdAddBox } from 'react-icons/md'
 import Breadcumb from '~/components/Breadcumb'
 import DatePicker from 'react-datepicker'
 import 'react-datepicker/dist/react-datepicker.css'
 import { Container, Button } from './styles'
+import api from '~/services/api'
+
+import LabelFile from '~/components/LabelFile'
 
 const schema = Yup.object().shape({
+  banner_id: Yup.number().required('The banner is required'),
   title: Yup.string().required('The title is required'),
   location: Yup.string().required('The location is required'),
-  date: Yup.date().required('The date is required'),
+  date: Yup.string().required('The date is required'),
   description: Yup.string()
-    .min(100, 'The description requires min 100 characters')
+    .min(50, 'The description requires min 50 characters')
     .required('The password is required')
 })
 
 export default function Create() {
   const [startDate, setStartDate] = useState(new Date())
-  function handleSubmit(data) {
-    console.tron.log(data)
+
+  async function handleSubmit(data) {
+    try {
+      const response = await api.post('meetups', data)
+      console.tron.log(response.data)
+    } catch (e) {
+      toast.error('Error to create meetup')
+    }
   }
 
   return (
@@ -31,6 +42,7 @@ export default function Create() {
       />
 
       <Form schema={schema} autoComplete="no-complete" onSubmit={handleSubmit}>
+        <LabelFile name="banner_id" />
         <Input name="title" type="string" placeholder="Title" />
         <Input name="location" type="string" placeholder="Location" />
         <DatePicker
@@ -43,10 +55,11 @@ export default function Create() {
           dateFormat="yyyy-M-dd h:mm"
         />
         <Input name="date" type="hidden" value={startDate} />
-        <Textarea
+        <Input
+          multiline
           name="description"
           placeholder="Please enter the description of your meeting"
-        ></Textarea>
+        />
         <Button type="submit">Create</Button>
       </Form>
     </Container>
