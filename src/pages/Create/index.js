@@ -1,4 +1,5 @@
 import React, { useState } from 'react'
+import history from '~/services/history'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 import { Form, Input } from '@rocketseat/unform'
@@ -22,14 +23,18 @@ const schema = Yup.object().shape({
 })
 
 export default function Create() {
+  const [loading, setLoading] = useState(false)
   const [startDate, setStartDate] = useState(new Date())
 
   async function handleSubmit(data) {
     try {
-      const response = await api.post('meetups', data)
-      console.tron.log(response.data)
+      setLoading(true)
+      await api.post('meetups', data)
+      toast.success('Meetup created!')
+      history.push('/dashboard')
     } catch (e) {
-      toast.error('Error to create meetup')
+      setLoading(false)
+      toast.error('Erro to create meetup')
     }
   }
 
@@ -60,7 +65,7 @@ export default function Create() {
           name="description"
           placeholder="Please enter the description of your meeting"
         />
-        <Button type="submit">Create</Button>
+        <Button type="submit">{loading ? 'Creating...' : 'Create'}</Button>
       </Form>
     </Container>
   )
