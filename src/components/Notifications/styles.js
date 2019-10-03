@@ -2,6 +2,7 @@ import styled, { css } from 'styled-components'
 import PerfectScrollBar from 'react-perfect-scrollbar'
 
 export const Container = styled.div`
+  z-index: 1000;
   position: relative;
 `
 export const Badge = styled.button`
@@ -34,7 +35,7 @@ export const NotificationList = styled.div`
   width: 260px;
   left: calc(50% - 130px);
   top: calc(100% + 30px);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.9);
   box-shadow: 10px 10px 20px rgba(0, 0, 0, 0.3);
   border-radius: 4px;
   padding: 15px 5px;
@@ -48,7 +49,7 @@ export const NotificationList = styled.div`
     height: 0;
     border-left: 20px solid transparent;
     border-right: 20px solid transparent;
-    border-bottom: 20px solid rgba(0, 0, 0, 0.6);
+    border-bottom: 20px solid rgba(0, 0, 0, 0.9);
   }
 `
 export const Notification = styled.div`

@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import history from '~/services/history'
 import { format, parseISO } from 'date-fns'
 import Breadcumb from '~/components/Breadcumb'
 import {
@@ -65,7 +66,11 @@ export default function Dashboard() {
               </div>
             </CardBody>
             <CardFooter past={m.past_meetup}>
-              <button>
+              <button
+                onClick={() => {
+                  history.push(`/meetup/${m.id}`)
+                }}
+              >
                 <MdInfo />
               </button>
               <button>
