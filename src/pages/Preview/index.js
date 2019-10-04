@@ -6,9 +6,22 @@ import { toast } from 'react-toastify'
 
 import api from '~/services/api'
 
-import { Container } from './styles'
+import {
+  Container,
+  Meetup,
+  Image,
+  Content,
+  Title,
+  Local,
+  Description,
+  Subscriptions,
+  Subscription,
+  Name,
+  Email
+} from './styles'
 
 export default function Preview({ match }) {
+  const [banner, setBanner] = useState({})
   const [meetup, setMeetup] = useState({})
 
   useEffect(() => {
@@ -17,6 +30,7 @@ export default function Preview({ match }) {
         .get(`/organizers/meetup/${match.params.meetup_id}`)
         .then(meetup => {
           setMeetup(meetup.data)
+          setBanner(meetup.data.banner)
         })
         .catch(() => {
           toast.error('Meetup not found')
@@ -33,6 +47,20 @@ export default function Preview({ match }) {
         subtitle={meetup.title}
         icon={<MdBookmark />}
       />
+      <Meetup>
+        <Image background={banner.url}></Image>
+        <Content>
+          <Title>{meetup.title}</Title>
+          <Local>{meetup.location}</Local>
+          <Description>{meetup.description}</Description>
+          <Subscriptions>
+            <Subscription>
+              <Name>nome</Name>
+              <Email>email</Email>
+            </Subscription>
+          </Subscriptions>
+        </Content>
+      </Meetup>
     </Container>
   )
 }
