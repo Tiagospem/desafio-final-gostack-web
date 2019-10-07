@@ -34,6 +34,7 @@ export const CardHeader = styled.header`
   width: 100%;
   background-image: url(${props => props.image});
   background-size: cover;
+  background-position: center center;
 `
 export const CardBody = styled.div`
   word-break: break-all;

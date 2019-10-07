@@ -4,7 +4,6 @@ export const keyFramesFilter = keyframes`
 0% {
   opacity: 0.5;
   filter: grayscale(1);
-  background-position: bottom center;
 }
 100% {
   filter: grayscale(0);
@@ -30,7 +29,7 @@ export const Image = styled.div`
   animation-iteration-count: 1;
   background-image: url(${props => props.background});
   opacity: 1;
-  background-position: top center;
+  background-position: center center;
   background-size: cover;
   background-repeat: no-repeat;
   border-top-left-radius: 4px;
@@ -38,9 +37,6 @@ export const Image = styled.div`
   height: 200px;
   width: 100%;
   transition: background-position 2s;
-  &:hover {
-    background-position: bottom center;
-  }
 `
 
 export const Content = styled.div`
@@ -56,16 +52,44 @@ export const Title = styled.div`
 `
 
 export const Local = styled.div`
-  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.09);
+  padding-top: 10px;
   color: #666;
 `
 
 export const Description = styled.div`
-  margin-bottom: 10px;
+  margin-bottom: 15px;
   color: #666;
 `
 
+export const Date = styled.div`
+  margin-bottom: 15px;
+  border-bottom: 1px dashed rgba(0, 0, 0, 0.09);
+  padding-bottom: 10px;
+  color: #666;
+`
+
+export const SubscriptionTitle = styled.div`
+  font-weight: bold;
+  font-size: 18px;
+  border-top: 1px dashed rgba(0, 0, 0, 0.09);
+  padding-top: 10px;
+  padding-bottom: 10px;
+`
 export const Subscriptions = styled.div``
-export const Subscription = styled.div``
-export const Name = styled.div``
-export const Email = styled.div``
+export const Subscription = styled.div`
+  background: #f7f7f7;
+  padding: 5px;
+  margin: 5px 0;
+  border-radius: 4px;
+`
+export const Name = styled.div`
+  color: rgba(0, 0, 0, 0.6);
+  margin-bottom: 5px;
+  font-weight: bold;
+`
+export const Email = styled.div`
+  font-size: 12px;
+  color: rgba(0, 0, 0, 0.4);
+`
