@@ -53,7 +53,7 @@ export const CardBody = styled.div`
   word-break: break-all;
   line-height: 15px;
   font-size: 13px;
-  height: 110px;
+  height: 120px;
   padding: 8px;
   color: #999;
   display: flex;

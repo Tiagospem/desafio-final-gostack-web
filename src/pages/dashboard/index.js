@@ -11,7 +11,8 @@ import {
   MdInfo,
   MdDashboard,
   MdPinDrop,
-  MdToday
+  MdToday,
+  MdGroup
 } from 'react-icons/md'
 import {
   Container,
@@ -61,7 +62,8 @@ export default function Dashboard() {
             ...m,
             title: m.title.slice(0, 70),
             location: m.location.slice(0, 35),
-            date: format(parseISO(m.date), 'MMM d, YYY - HH:mm')
+            date: format(parseISO(m.date), 'MMM d, YYY - HH:mm'),
+            count: m.subscriptions.length
           }
         })
         setMeetups(slice)
@@ -96,6 +98,9 @@ export default function Dashboard() {
                 </p>
                 <p>
                   <MdPinDrop /> {m.location}
+                </p>
+                <p>
+                  <MdGroup /> {m.count} subscribers
                 </p>
               </div>
             </CardBody>
