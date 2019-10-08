@@ -23,7 +23,7 @@ export const Label = styled.label`
   border-radius: 4px;
   margin: 0 0 10px;
   width: 100%;
-  height: 120px;
+  height: 230px;
   ${props =>
     props.background &&
     css`
