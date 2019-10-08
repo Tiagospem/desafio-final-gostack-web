@@ -2,7 +2,7 @@ import React from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import { Link } from 'react-router-dom'
 import { Container, Content, Profile } from './styles'
-import Notifications from '~/components/Notifications'
+// import Notifications from '~/components/Notifications'
 import { signOut } from '~/store/modules/auth/actions'
 import logo from '~/assets/logo.png'
 
@@ -21,7 +21,6 @@ function Header() {
           <Link to="/create">Create New</Link>
         </nav>
         <aside>
-          <Notifications />
           <Profile>
             <div>
               <strong>{profile.name}</strong>
