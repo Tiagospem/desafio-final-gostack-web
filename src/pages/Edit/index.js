@@ -1,9 +1,9 @@
-import React, { useState } from 'react'
+import React, { useState, useEffect } from 'react'
 import history from '~/services/history'
 import { toast } from 'react-toastify'
 import * as Yup from 'yup'
 import { Form, Input } from '@rocketseat/unform'
-import { MdAddBox } from 'react-icons/md'
+import { MdEdit } from 'react-icons/md'
 import Breadcumb from '~/components/Breadcumb'
 import DatePicker from '~/components/DatePicker'
 import { Container, Button } from './styles'
@@ -21,30 +21,53 @@ const schema = Yup.object().shape({
     .required('The password is required')
 })
 
-export default function Create() {
+export default function Edit({ match }) {
   const [loading, setLoading] = useState(false)
+  const [banner, setBanner] = useState({})
+  const [meetup, setMeetup] = useState({})
+
+  useEffect(() => {
+    async function loadMeetup() {
+      await api
+        .get(`/organizers/meetup/${match.params.meetup_id}`)
+        .then(meetup => {
+          setMeetup(meetup.data)
+          setBanner(meetup.data.banner)
+        })
+        .catch(() => {
+          toast.error('Meetup not found')
+          history.push('/dashboard')
+        })
+    }
+    loadMeetup()
+  }, [match])
 
   async function handleSubmit(data) {
     try {
       setLoading(true)
-      await api.post('meetups', data)
-      toast.success('Meetup created!')
-      history.push('/dashboard')
+      await api.put(`meetups/${match.params.meetup_id}`, data)
+      toast.success('Meetup updated!')
+      setLoading(false)
     } catch (e) {
       setLoading(false)
-      toast.error('Error to create meetup')
+      toast.error('Error to update meetup')
     }
   }
 
   return (
     <Container>
       <Breadcumb
-        title="Create New"
-        subtitle="You can create new meetings here"
-        icon={<MdAddBox />}
+        title="Edit Meetup"
+        subtitle="You can edit your meetup here"
+        icon={<MdEdit />}
       />
-      <Form schema={schema} autoComplete="no-complete" onSubmit={handleSubmit}>
-        <LabelFile name="banner_id" />
+      <Form
+        schema={schema}
+        initialData={meetup}
+        autoComplete="no-complete"
+        onSubmit={handleSubmit}
+      >
+        <LabelFile fileData={banner} name="banner_id" />
         <Input name="title" type="string" placeholder="Title" />
         <Input name="location" type="string" placeholder="Location" />
         <DatePicker name="date" />
@@ -53,7 +76,7 @@ export default function Create() {
           name="description"
           placeholder="Please enter the description of your meeting"
         />
-        <Button type="submit">{loading ? 'Creating...' : 'Create'}</Button>
+        <Button type="submit">{loading ? 'Saving...' : 'Save'}</Button>
       </Form>
     </Container>
   )

@@ -13,6 +13,7 @@ export const Container = styled.div`
   padding-top: 20px;
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 20px;
 `
 
 export const Meetup = styled.div`

@@ -8,8 +8,8 @@ export default function LabelFile({ name, fileData }) {
   const ref = useRef()
 
   const { fieldName, registerField } = useField(name)
-  const [file, setFile] = useState(fileData && fileData.banner.id)
-  const [preview, setPreview] = useState(fileData && fileData.banner.url)
+  const [file, setFile] = useState()
+  const [preview, setPreview] = useState()
 
   async function handleChangefile(e) {
     const data = new FormData()
@@ -19,6 +19,13 @@ export default function LabelFile({ name, fileData }) {
     setFile(id)
     setPreview(url)
   }
+
+  useEffect(() => {
+    if (fileData) {
+      setFile(fileData.id)
+      setPreview(fileData.url)
+    }
+  }, [fileData])
 
   useEffect(() => {
     registerField({

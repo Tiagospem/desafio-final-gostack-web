@@ -8,6 +8,7 @@ import Dashboard from '../pages/Dashboard'
 import Account from '../pages/Account'
 import Create from '../pages/Create'
 import Preview from '../pages/Preview'
+import Edit from '../pages/Edit'
 
 export default function Routes() {
   return (
@@ -18,6 +19,7 @@ export default function Routes() {
       <Route path="/account" component={Account} isPrivate />
       <Route path="/create" component={Create} isPrivate />
       <Route path="/meetup/:meetup_id" component={Preview} isPrivate />
+      <Route path="/edit/meetup/:meetup_id" component={Edit} isPrivate />
       <Route path="/" component={() => <h1>404</h1>} />
     </Switch>
   )

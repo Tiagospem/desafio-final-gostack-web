@@ -5,6 +5,7 @@ export const Container = styled.div`
   padding-top: 20px;
   max-width: 900px;
   margin: 0 auto;
+  margin-bottom: 20px;
 `
 export const List = styled.ul`
   list-style: none;
@@ -16,10 +17,10 @@ export const Card = styled.li`
   z-index: 1;
   background: #fff;
   border-radius: 4px;
-  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.03);
+  box-shadow: 0px 0px 4px 1px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.4s;
   &:hover {
-    box-shadow: 3px 3px 4px 0px rgba(0, 0, 0, 0.1);
+    box-shadow: 2px 2px 3px 1px rgba(0, 0, 0, 0.2);
   }
   ${props =>
     props.past &&
@@ -42,7 +43,7 @@ export const CardBody = styled.div`
   font-size: 13px;
   height: 110px;
   padding: 8px;
-  color: #bababa;
+  color: #999;
   display: flex;
   align-items: center;
   border-top: 1px solid #eee;
