@@ -19,7 +19,8 @@ import {
   Card,
   CardHeader,
   CardBody,
-  CardFooter
+  CardFooter,
+  NoMeetup
 } from './styles'
 import api from '~/services/api'
 
@@ -76,6 +77,11 @@ export default function Dashboard() {
         subtitle="Your current meetings. You can preview, cancel and edit meetings"
         icon={<MdDashboard />}
       />
+      {meetups.length === 0 && (
+        <NoMeetup>
+          <span>No meetups found</span>
+        </NoMeetup>
+      )}
       <List>
         {meetups.map(m => (
           <Card key={m.id} past={m.past_meetup}>

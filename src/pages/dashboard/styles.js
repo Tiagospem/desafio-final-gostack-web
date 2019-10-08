@@ -1,5 +1,14 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
 import { lighten } from 'polished'
+
+export const keyFramesFilter = keyframes`
+0% {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+100% {
+  filter: grayscale(0);
+}`
 
 export const Container = styled.div`
   padding-top: 20px;
@@ -30,6 +39,9 @@ export const Card = styled.li`
     `}
 `
 export const CardHeader = styled.header`
+  animation-name: ${keyFramesFilter};
+  animation-duration: 1s;
+  animation-iteration-count: 1;
   border-top-left-radius: 4px;
   height: 80px;
   width: 100%;
@@ -101,5 +113,22 @@ export const CardFooter = styled.div`
         color: #fff;
       }
     }
+  }
+`
+
+export const NoMeetup = styled.div`
+  color: #ccc;
+  display: flex;
+  align-items: center;
+  &::after {
+    content: '';
+    width: 100%;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.03);
+    display: block;
+    margin-left: 10px;
+  }
+  span {
+    display: block;
+    white-space: nowrap;
   }
 `

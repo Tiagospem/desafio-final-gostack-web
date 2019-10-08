@@ -1,8 +1,20 @@
-import styled, { css } from 'styled-components'
+import styled, { css, keyframes } from 'styled-components'
+
+export const keyFramesFilter = keyframes`
+0% {
+  opacity: 0.5;
+  filter: grayscale(1);
+}
+100% {
+  filter: grayscale(0);
+}`
 
 export const Container = styled.div``
 
 export const Label = styled.label`
+  animation-name: ${keyFramesFilter};
+  animation-duration: 1s;
+  animation-iteration-count: 1;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -12,7 +24,6 @@ export const Label = styled.label`
   margin: 0 0 10px;
   width: 100%;
   height: 120px;
-  transition: all 0.3s;
   ${props =>
     props.background &&
     css`
