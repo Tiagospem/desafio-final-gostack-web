@@ -23,7 +23,7 @@ export const keyFramesFilter = keyframes`
 export const Wrapper = styled.div`
   height: 100%;
   opacity: 0.99;
-  background: rgba(166, 69, 54, 0.1);
+  background: rgba(113, 89, 193, 0.1);
   display: flex;
   justify-content: center;
   align-items: center;
@@ -82,7 +82,7 @@ export const Content = styled.div`
     button {
       margin: 5px 0 0;
       height: 44px;
-      background: #a64536;
+      background: #7159c1;
       font-weight: bold;
       color: #fff;
       border: 0;
@@ -90,12 +90,12 @@ export const Content = styled.div`
       font-size: 16px;
       transition: background 0.2s;
       &:hover {
-        background: ${darken(0.08, '#a64536')};
+        background: ${darken(0.08, '#7159c1')};
       }
     }
     span {
       width: 100%;
-      color: #a64536;
+      color: #7159c1;
       text-align: left;
       margin-bottom: 10px;
       position: relative;

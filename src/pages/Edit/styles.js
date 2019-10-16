@@ -42,7 +42,7 @@ export const Container = styled.div`
     }
     span {
       width: 100%;
-      color: #a64536;
+      color: #7159c1;
       text-align: left;
       margin-bottom: 5px;
       position: relative;
@@ -64,7 +64,7 @@ export const Container = styled.div`
 export const Button = styled.button`
   margin: 5px 0 0;
   height: 44px;
-  background: #a64536;
+  background: #7159c1;
   font-weight: bold;
   color: #fff;
   border: 0;
@@ -72,6 +72,6 @@ export const Button = styled.button`
   font-size: 16px;
   transition: background 0.2s;
   &:hover {
-    background: ${darken(0.08, '#a64536')};
+    background: ${darken(0.08, '#7159c1')};
   }
 `

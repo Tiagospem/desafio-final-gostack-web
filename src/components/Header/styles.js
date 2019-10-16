@@ -28,7 +28,7 @@ export const Content = styled.div`
       margin-right: 10px;
       transition: color 0.4s;
       &:hover {
-        color: #a64536;
+        color: #7159c1;
       }
     }
   }
@@ -69,7 +69,7 @@ export const Profile = styled.div`
     color: #fff;
     transition: background 0.4s;
     &:hover {
-      background: #a64536;
+      background: #7159c1;
     }
     span {
       position: relative;
