@@ -1,19 +1,15 @@
-# Meetup Frontend
+# Meetapp Web
 
-please execute yarn for installing depedences
+This is the web version using react from meetapp. used for certification on bootcamp by Rocketseat.
 
-```sh
-$ yarn
+## Installation
+
+Make sure you already have react installed, you can read documentation before get started. Then use the package manager for install dependencies then run metro builder.
+
+```bash
+yarn
+yarn start
 ```
-if running in windows please edit reactotronconfig.js in src/config,
 
-```sh
-.connect({
-      host: your_local_ip_here
-    })
-```
-if running on mac or linux
-
-```sh
-.connect()
-```
+## API
+The api runs on ``http://localhost:3333`` you can change it on ``src/services/api.js``
